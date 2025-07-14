@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scene Junkies</title>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=VT323&display=swap" rel="stylesheet" />
+  <style>
+    /* RESET & FONTS */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'VT323', monospace;
+      color: #f2f2f2;
+      overflow-x: hidden;
+      min-height: 100vh;
+      background: #0a0a0a url('https://www.transparenttextures.com/patterns/black-linen.png');
+      position: relative;
+    }
+
+    /* GLITCHY BACKGROUND */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://media.giphy.com/media/9J7tdYltWyXIY/giphy.gif') center center / cover no-repeat;
+      opacity: 0.12;
+      z-index: -1;
+      pointer-events: none;
+      animation: glitch 4s infinite;
+      filter: grayscale(100%) contrast(1.2);
+    }
+    @keyframes glitch {
+      0% { transform: translate(0, 0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    /* CENTER CONTAINER */
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 64px;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #999, 0 0 20px #444;
+    }
+
+    .slogan {
+      font-size: 28px;
+      color: #ccc;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .links {
+      margin-bottom: 30px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 10px;
+      color: #fff;
+      background: transparent;
+      text-decoration: none;
+      font-size: 22px;
+      border: 2px solid #fff;
+      padding: 10px 25px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .links a:hover {
+      background-color: #fff;
+      color: #000;
+      box-shadow: 0 0 10px #fff;
+    }
+
+    footer {
+      margin: 60px 0 20px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .skull {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 100px;
+      opacity: 0.08;
+      filter: grayscale(100%);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <img class="skull" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Skull_and_crossbones.svg/512px-Skull_and_crossbones.svg.png" alt="Skull" />
+
+  <div class="container">
+    <h1>Scene Junkies</h1>
+    <div class="slogan">Get Your Fix</div>
+
+    <div class="links">
+      <a href="https://www.instagram.com/scene_junkies/“ target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="mailto:scenejunkiesunite@gmail.com" rel="noopener noreferrer">Email Us</a>
+    </div>
+
+    <footer>© 2025 Scene Junkies. All rights reserved.</footer>
+  </div>
+</body>
+</html>
