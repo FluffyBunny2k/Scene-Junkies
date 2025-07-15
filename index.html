@@ -135,8 +135,29 @@
         padding: 15px 10px;
       }
     }
+
+  .falling-rose {
+  position: fixed;
+  top: -100px;
+  width: 40px;
+  pointer-events: none;
+  z-index: 2;
+  animation-name: fall-rose;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall-rose {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
   </style>
 </head>
+
 <body>
   <div class="page-wrapper">
     <div class="container">
@@ -152,4 +173,19 @@
     <footer>© 2025 Scene Junkies. All rights reserved.</footer>
   </div>
 </body>
+    <script>
+  const roseCount = 12; // number of falling roses
+  const roseSrc = "https://raw.githubusercontent.com/FluffyBunny2k/Scene-Junkies/main/ROSE%20LRG.png";
+
+  for (let i = 0; i < roseCount; i++) {
+    const rose = document.createElement("img");
+    rose.src = roseSrc;
+    rose.classList.add("falling-rose");
+    rose.style.left = Math.random() * 100 + "vw";
+    rose.style.animationDuration = 10 + Math.random() * 10 + "s";
+    rose.style.opacity = 0.4 + Math.random() * 0.5;
+    rose.style.transform = `scale(${0.3 + Math.random() * 0.5}) rotate(${Math.random() * 360}deg)`;
+    document.body.appendChild(rose);
+  }
+</script>
 </html>
