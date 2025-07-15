@@ -18,25 +18,28 @@
   background-color: #0a0a0a;
 }
   
- body::after {
+body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Adjust the 0.5 for more or less darkness */
-  z-index: 0;
+  background: url('https://i.imgur.com/F3d7TqK.png') center center / cover repeat;
+  opacity: 0.05;
+  z-index: 1;
   pointer-events: none;
+  mix-blend-mode: overlay;
+  animation: flicker 2s infinite;
 }
 
-    @keyframes glitch {
-      0% { transform: translate(0, 0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-1px, 1px); }
-      80% { transform: translate(1px, -1px); }
-      100% { transform: translate(0, 0); }
-    }
+ @keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 100% {
+    opacity: 0.05;
+  }
+  20%, 21.999%, 63%, 63.999% {
+    opacity: 0.15;
+  }
+}
 
     /* CENTER CONTAINER */
     .container {
@@ -64,9 +67,12 @@
       margin-bottom: 40px;
     }
 
-    .links {
-      margin-bottom: 30px;
-    }
+    .links a:hover {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 8px #fff, 0 0 20px #fff;
+  transform: scale(1.05);
+}
 
     .links a {
       display: inline-block;
