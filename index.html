@@ -18,8 +18,7 @@
       position: relative;
     }
 
-    /* GLITCHY BACKGROUND */
- body::before {
+body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
@@ -31,7 +30,7 @@
   pointer-events: none;
   filter: grayscale(50%) contrast(1.1);
 }
-    
+  
     @keyframes glitch {
       0% { transform: translate(0, 0); }
       20% { transform: translate(-2px, 2px); }
