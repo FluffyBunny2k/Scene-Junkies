@@ -19,18 +19,19 @@
     }
 
     /* GLITCHY BACKGROUND */
-  body::before {
+ body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: url('bg.jpg') center center / cover no-repeat;
+  background: url('https://fluffybunny2k.github.io/Scene-Junkies/IMG_3534.jpeg') center center / cover no-repeat;
+  opacity: 0.45;
   z-index: -1;
-  opacity: 0.2;
   pointer-events: none;
-  filter: grayscale(100%) contrast(1.2);
+  filter: grayscale(50%) contrast(1.1);
 }
+    
     @keyframes glitch {
       0% { transform: translate(0, 0); }
       20% { transform: translate(-2px, 2px); }
@@ -108,7 +109,6 @@
 </head>
 <body>
 
-<img class="skull" src="https://fluffybunny2k.github.io/Scene-Junkies/IMG_3534.jpeg" alt="Skull" />
 
   <div class="container">
     <h1>Scene Junkies</h1>
