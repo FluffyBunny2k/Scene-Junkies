@@ -124,40 +124,58 @@
 
     /* Falling Roses */
     .falling-rose {
-      position: fixed;
-      top: -100px;
-      width: 40px;
-      pointer-events: none;
-      z-index: 2;
-      animation: fall-rose 10s linear infinite, sway 4s ease-in-out infinite;
-      opacity: 0;
-      animation-fill-mode: forwards;
-    }
+  position: fixed;
+  top: -100px;
+  width: 40px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
 
-    @keyframes fall-rose {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(120vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
+/* Clockwise */
+.spin-right {
+  animation: fall-rose-right 10s linear infinite, sway 4s ease-in-out infinite;
+}
 
-    @keyframes sway {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-10px); }
-      50% { transform: translateX(10px); }
-      75% { transform: translateX(-6px); }
-      100% { transform: translateX(0); }
-    }
+/* Counterclockwise */
+.spin-left {
+  animation: fall-rose-left 10s linear infinite, sway 4s ease-in-out infinite;
+}
+
+@keyframes fall-rose-right {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fall-rose-left {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(120vh) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
   </style>
 </head>
 <body>
@@ -200,7 +218,9 @@
 
     document.body.appendChild(rose);
   }
-</script>
+rose.style.animationDuration = 8 + Math.random() * 6 + "s";
+
+ </script>
 
 </body>
 </html>
