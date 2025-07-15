@@ -6,7 +6,6 @@
   <title>Scene Junkies</title>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=VT323&display=swap" rel="stylesheet" />
   <style>
-    /* RESET & FONTS */
     html, body {
       margin: 0;
       padding: 0;
@@ -43,7 +42,6 @@
       z-index: 3;
     }
 
-    /* DARK OVERLAY */
     body::after {
       content: "";
       position: fixed;
@@ -55,7 +53,6 @@
       pointer-events: none;
     }
 
-    /* GRUNGE FLICKER OVERLAY */
     body::before {
       content: "";
       position: fixed;
@@ -71,12 +68,8 @@
     }
 
     @keyframes flicker {
-      0%, 19.999%, 22%, 62.999%, 64%, 100% {
-        opacity: 0.05;
-      }
-      20%, 21.999%, 63%, 63.999% {
-        opacity: 0.15;
-      }
+      0%, 19.999%, 22%, 62.999%, 64%, 100% { opacity: 0.05; }
+      20%, 21.999%, 63%, 63.999% { opacity: 0.15; }
     }
 
     h1 {
@@ -115,49 +108,42 @@
       transform: scale(1.05);
     }
 
-    /* MOBILE OPTIMISATION */
+    /* Falling Roses */
+    .falling-rose {
+      position: fixed;
+      top: -100px;
+      width: 40px;
+      pointer-events: none;
+      z-index: 2;
+      animation-name: fall-rose;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall-rose {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(120vh) rotate(360deg);
+      }
+    }
+
+    /* Mobile Optimisation */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 42px;
-      }
-
-      .slogan {
-        font-size: 18px;
-      }
-
+      h1 { font-size: 42px; }
+      .slogan { font-size: 18px; }
       .links a {
         font-size: 18px;
         padding: 8px 20px;
       }
-
       footer {
         font-size: 12px;
         padding: 15px 10px;
       }
     }
-
-  .falling-rose {
-  position: fixed;
-  top: -100px;
-  width: 40px;
-  pointer-events: none;
-  z-index: 2;
-  animation-name: fall-rose;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes fall-rose {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(120vh) rotate(360deg);
-  }
-}
   </style>
 </head>
-
 <body>
   <div class="page-wrapper">
     <div class="container">
@@ -172,20 +158,21 @@
 
     <footer>© 2025 Scene Junkies. All rights reserved.</footer>
   </div>
-</body>
-    <script>
-  const roseCount = 12; // number of falling roses
-  const roseSrc = "https://raw.githubusercontent.com/FluffyBunny2k/Scene-Junkies/main/ROSE%20LRG.png";
 
-  for (let i = 0; i < roseCount; i++) {
-    const rose = document.createElement("img");
-    rose.src = roseSrc;
-    rose.classList.add("falling-rose");
-    rose.style.left = Math.random() * 100 + "vw";
-    rose.style.animationDuration = 10 + Math.random() * 10 + "s";
-    rose.style.opacity = 0.4 + Math.random() * 0.5;
-    rose.style.transform = `scale(${0.3 + Math.random() * 0.5}) rotate(${Math.random() * 360}deg)`;
-    document.body.appendChild(rose);
-  }
-</script>
+  <script>
+    const roseCount = 12;
+    const roseSrc = "https://raw.githubusercontent.com/FluffyBunny2k/Scene-Junkies/main/ROSE%20LRG.png";
+
+    for (let i = 0; i < roseCount; i++) {
+      const rose = document.createElement("img");
+      rose.src = roseSrc;
+      rose.classList.add("falling-rose");
+      rose.style.left = Math.random() * 100 + "vw";
+      rose.style.animationDuration = 10 + Math.random() * 10 + "s";
+      rose.style.opacity = 0.4 + Math.random() * 0.5;
+      rose.style.transform = `scale(${0.3 + Math.random() * 0.5}) rotate(${Math.random() * 360}deg)`;
+      document.body.appendChild(rose);
+    }
+  </script>
+</body>
 </html>
