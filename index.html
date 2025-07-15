@@ -175,25 +175,32 @@
     <footer>© 2025 Scene Junkies. All rights reserved.</footer>
   </div>
 
-  <script>
-    const roseCount = 16;
-    const roseImages = [
-      "https://raw.githubusercontent.com/FluffyBunny2k/Scene-Junkies/main/ROSE%20LRG.png"
-      // Add more rose images here if you have them
-      // e.g., "url-to-rose2.png", "url-to-rose3.png"
-    ];
+ <script>
+  const roseCount = 16;
+  const roseImages = [
+    "https://raw.githubusercontent.com/FluffyBunny2k/Scene-Junkies/main/ROSE%20LRG.png"
+    // Add more rose URLs here if you want variety
+  ];
 
-    for (let i = 0; i < roseCount; i++) {
-      const rose = document.createElement("img");
-      rose.src = roseImages[Math.floor(Math.random() * roseImages.length)];
-      rose.classList.add("falling-rose");
-      rose.style.left = Math.random() * 100 + "vw";
-      rose.style.animationDuration = 8 + Math.random() * 6 + "s";
-      rose.style.animationDelay = Math.random() * 5 + "s";
-      rose.style.opacity = 0.4 + Math.random() * 0.5;
-      rose.style.transform = `scale(${0.3 + Math.random() * 0.5}) rotate(${Math.random() * 360}deg)`;
-      document.body.appendChild(rose);
-    }
-  </script>
+  for (let i = 0; i < roseCount; i++) {
+    const rose = document.createElement("img");
+    rose.src = roseImages[Math.floor(Math.random() * roseImages.length)];
+    rose.classList.add("falling-rose");
+
+    // Randomize position and movement
+    rose.style.left = Math.random() * 100 + "vw";
+    rose.style.animationDuration = 8 + Math.random() * 6 + "s";
+    rose.style.animationDelay = Math.random() * 5 + "s";
+    rose.style.opacity = 0.4 + Math.random() * 0.5;
+    rose.style.transform = `scale(${0.3 + Math.random() * 0.5})`;
+
+    // Randomize rotation direction
+    const spinDirection = Math.random() < 0.5 ? "spin-left" : "spin-right";
+    rose.classList.add(spinDirection);
+
+    document.body.appendChild(rose);
+  }
+</script>
+
 </body>
 </html>
