@@ -7,39 +7,53 @@
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=VT323&display=swap" rel="stylesheet" />
   <style>
     /* RESET & FONTS */
- body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'VT323', monospace;
-  color: #f2f2f2;
-  overflow-x: hidden;
-  min-height: 100vh;
-  background: url('https://fluffybunny2k.github.io/Scene-Junkies/IMG_3534.jpeg') center center / cover no-repeat fixed;
-  background-color: #0a0a0a;
-}
-  
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://i.imgur.com/F3d7TqK.png') center center / cover repeat;
-  opacity: 0.05;
-  z-index: 1;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  animation: flicker 2s infinite;
-}
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'VT323', monospace;
+      color: #f2f2f2;
+      overflow-x: hidden;
+      min-height: 100vh;
+      background: url('https://fluffybunny2k.github.io/Scene-Junkies/IMG_3534.jpeg') center center / cover no-repeat fixed;
+      background-color: #000;
+      position: relative;
+    }
 
- @keyframes flicker {
-  0%, 19.999%, 22%, 62.999%, 64%, 100% {
-    opacity: 0.05;
-  }
-  20%, 21.999%, 63%, 63.999% {
-    opacity: 0.15;
-  }
-}
+    /* DARK OVERLAY */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45); /* Adjust this for darker/lighter fade */
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* GRUNGE FLICKER OVERLAY */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.imgur.com/F3d7TqK.png') center center / cover repeat;
+      opacity: 0.05;
+      z-index: 2;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 19.999%, 22%, 62.999%, 64%, 100% {
+        opacity: 0.05;
+      }
+      20%, 21.999%, 63%, 63.999% {
+        opacity: 0.15;
+      }
+    }
 
     /* CENTER CONTAINER */
     .container {
@@ -48,7 +62,7 @@ body::before {
       padding: 40px 20px;
       text-align: center;
       position: relative;
-      z-index: 1;
+      z-index: 3;
     }
 
     h1 {
@@ -67,13 +81,6 @@ body::before {
       margin-bottom: 40px;
     }
 
-    .links a:hover {
-  background-color: #fff;
-  color: #000;
-  box-shadow: 0 0 8px #fff, 0 0 20px #fff;
-  transform: scale(1.05);
-}
-
     .links a {
       display: inline-block;
       margin: 10px;
@@ -90,7 +97,8 @@ body::before {
     .links a:hover {
       background-color: #fff;
       color: #000;
-      box-shadow: 0 0 10px #fff;
+      box-shadow: 0 0 8px #fff, 0 0 20px #fff;
+      transform: scale(1.05);
     }
 
     footer {
@@ -99,6 +107,7 @@ body::before {
       color: #555;
     }
 
+    /* OPTIONAL SKULL IMAGE (if you re-enable it) */
     .skull {
       position: absolute;
       top: 10px;
@@ -108,17 +117,32 @@ body::before {
       filter: grayscale(100%);
       z-index: 0;
     }
+
+    /* MOBILE OPTIMISATION */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      .slogan {
+        font-size: 18px;
+      }
+
+      .links a {
+        font-size: 18px;
+        padding: 8px 20px;
+      }
+    }
   </style>
 </head>
 <body>
-
 
   <div class="container">
     <h1>Scene Junkies</h1>
     <div class="slogan">Get Your Fix</div>
 
     <div class="links">
-<a href="https://www.instagram.com/scene_junkies/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.instagram.com/scene_junkies/" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="mailto:scenejunkiesunite@gmail.com" rel="noopener noreferrer">Email Us</a>
     </div>
 
