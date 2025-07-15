@@ -104,7 +104,7 @@
     footer {
       margin: 60px 0 20px 0;
       font-size: 14px;
-      color: #555;
+      color: #e2e2e2;
     }
 
     /* OPTIONAL SKULL IMAGE (if you re-enable it) */
@@ -134,19 +134,38 @@
       }
     }
   </style>
+  .page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  flex: 1;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  margin-top: auto;
+  padding: 20px;
+}
+
 </head>
 <body>
+  <div class="page-wrapper">
+    <div class="container">
+      <h1>Scene Junkies</h1>
+      <div class="slogan">Get Your Fix</div>
 
-  <div class="container">
-    <h1>Scene Junkies</h1>
-    <div class="slogan">Get Your Fix</div>
-
-    <div class="links">
-      <a href="https://www.instagram.com/scene_junkies/" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="mailto:scenejunkiesunite@gmail.com" rel="noopener noreferrer">Email Us</a>
+      <div class="links">
+        <a href="https://www.instagram.com/scene_junkies/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:scenejunkiesunite@gmail.com" rel="noopener noreferrer">Email Us</a>
+      </div>
     </div>
 
     <footer>© 2025 Scene Junkies. All rights reserved.</footer>
   </div>
 </body>
+
 </html>
